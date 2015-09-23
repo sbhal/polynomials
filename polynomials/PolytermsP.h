@@ -36,6 +36,8 @@ public:
 	// Find the highest exponent in the polynomial  
 	exponentType findDegree();
 
+	string getString(int number);
+
 
 private:
 
@@ -65,7 +67,7 @@ private:
 				return pos;
 			pos = pos->next;
 		}
-		
+
 		//add new term when unable to find
 		newTerm(exponent, (coefType)0);
 		return current;
