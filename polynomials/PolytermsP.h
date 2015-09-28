@@ -37,6 +37,7 @@ public:
 	exponentType findDegree();
 
 	string getString(int number);
+	void sort();
 
 
 private:

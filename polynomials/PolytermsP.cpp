@@ -80,7 +80,7 @@ string Poly::getString(int number)
 {
 	struct polyTerm * pos = head;
 	std::stringstream ss;
-
+	sort();
 	ss << "poly(" << number << ") = ";
 	while (pos != NULL) {
 		ss << pos->coef;
@@ -103,3 +103,30 @@ string Poly::getString(int number)
 	return ss.str();
 
 }
+
+void Poly::sort()
+{
+	struct polyTerm *current;
+	coefType tcoef;
+	exponentType texpo;
+
+	current = head;
+
+	while (current->next != NULL)
+	{
+		if (current->exponent < current->next->exponent)
+		{
+			tcoef = current->coef;
+			texpo = current->exponent;
+
+			current->coef = current->next->coef;
+			current->exponent = current->next->exponent;
+			current->next->coef = tcoef;
+			current->next->exponent = texpo;
+			current = head;
+		} else {
+			current = current->next;
+		}
+	}
+}
+
